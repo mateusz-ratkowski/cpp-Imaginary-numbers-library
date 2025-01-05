@@ -45,6 +45,9 @@ bool operator!=(Imaginary a, Imaginary b);
 bool operator<(Imaginary a, Imaginary b);
 bool operator>(Imaginary a, Imaginary b);
 
+Imaginary expi(Imaginary z);
+Imaginary discreteFourierTransform(double f, double Ft[], int smapleLen);
+
 std::ostream& operator<<(std::ostream &stream, Imaginary &k);
 
 #endif
