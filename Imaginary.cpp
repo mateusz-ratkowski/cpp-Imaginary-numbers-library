@@ -234,6 +234,20 @@ double Imaginary::operator[](int n) {
 
 
 
+Imaginary expi(Imaginary z) {
+    double x = exp(z.re);
+    Imaginary z1 = Imaginary(x * cos(z.im), sin(z.im) * x);
+    return z1;
+}
+
+Imaginary discreteFourierTransform(double f, double Ft[], int sampleLen) {
+    Imaginary sum(0, 0);
+    for (int i = 0; i < sampleLen; i += 20) {
+        sum = sum + Ft[i] * expi(Imaginary(0, -2 * M_PI * f * (i / (double)sampleLen)));
+    }
+    return sum;
+}
+
 
 
 //cout
